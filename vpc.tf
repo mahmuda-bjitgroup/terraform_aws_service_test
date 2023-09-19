@@ -10,7 +10,7 @@ resource "aws_vpc" "mahmuda_vpc" {
 resource "aws_subnet" "mahmuda_public_subnet_1" {
   vpc_id            = aws_vpc.mahmuda_vpc.id
   cidr_block        = "192.168.1.0/24" #first public subnet
-  availability_zone = "us-west-1a"
+  availability_zone = "us-east-1a"
   # map_public_ip_on_launch = true #ensures the public ip of an instance
 
   tags = {
@@ -22,7 +22,7 @@ resource "aws_subnet" "mahmuda_public_subnet_1" {
 resource "aws_subnet" "mahmuda_public_subnet_2" {
   vpc_id            = aws_vpc.mahmuda_vpc.id
   cidr_block        = "192.168.2.0/24" #first public subnet
-  availability_zone = "us-west-1b"
+  availability_zone = "us-east-1b"
   #   map_public_ip_on_launch = true #ensures the public ip of an instance
 
   tags = {
