@@ -2,6 +2,7 @@ resource "aws_instance" "tf_ec2" {
   ami                    = "ami-04cb4ca688797756f"
   instance_type          = "t2.micro"
   # key_name               = "mahmuda-key-pair"
+  # key_name = "new-key-pair"
   subnet_id              = aws_subnet.mahmuda_public_subnet_1.id
   vpc_security_group_ids = [aws_security_group.vpc-ssh.id]
   availability_zone      = "us-east-1a"
