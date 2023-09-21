@@ -30,7 +30,17 @@ resource "aws_subnet" "mahmuda_public_subnet_2" {
   }
 }
 
+#Creating private subnet
+resource "aws_subnet" "mahmuda_private_subnet_1" {
+  vpc_id            = aws_vpc.mahmuda_vpc.id
+  cidr_block        = "192.168.3.0/24" #first public subnet
+  availability_zone = "us-east-1c"
+  #   map_public_ip_on_launch = true #ensures the public ip of an instance
 
+  tags = {
+    Name = "Private Subnet 3"
+  }
+}
 
 
 #Internet gateway for vpc
@@ -90,13 +100,6 @@ resource "aws_security_group" "vpc-ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # ingress {
-  #   description = "Allow Port 443 for TCP"
-  #   from_port   = 443
-  #   to_port     = 443
-  #   protocol    = "tcp"
-  #   cidr_blocks = ["0.0.0.0/0"]
-  # }
 
   egress {
     description = "Allow all IP and Ports outbound"

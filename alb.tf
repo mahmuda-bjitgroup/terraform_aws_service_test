@@ -1,6 +1,5 @@
 resource "aws_lb" "mahmuda_alb" {
   name = "mahmuda-alb"
-  # internal = false
   load_balancer_type = "application" #ALB
   security_groups    = [aws_security_group.vpc-ssh.id]
   subnets            = [aws_subnet.mahmuda_public_subnet_1.id, aws_subnet.mahmuda_public_subnet_2.id]
